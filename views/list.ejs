@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/general-ui.css">
+
+	<title>Search GIFs</title>
+</head>
+<body>
+	<form id="search_form" action="/gif" method="GET">
+		<input type="text" class="text_input" name="q" value="<%= query %>">
+		<input class="btn" type="submit">
+	</form>
+	<form id="search_form" class="box" action="/save" method="GET">
+		<input class="btn" type="submit" value="Save top 10 to file"/>
+		<input type="text" class="text_input" name="q" value="<%= query %>" readonly >
+	</form>
+	<section id="gif_list">
+	<% for(let gif of gifs) { %>
+		<div class="box gif_box">
+			<img src="<%= gif.images.original.url %>" />
+			<h5>@<%= gif.username %> via GIPHY</h5><h3><%= gif.rating %></h3>
+		</div>
+	<% } %>
+	</section>
+</body>
+</html>

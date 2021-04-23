@@ -10,24 +10,84 @@
 * {
 	box-sizing: border-box;
 }
+
+body {
+	padding: 0;
+	margin: 0;
+}
+main {
+	padding: 0.5rem;
+}
+nav {
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+
+	padding-left: 2rem;
+
+	display: block;
+
+	height: 3rem;
+	box-shadow: 0px 1px 5px 0px #7c7c7c;
+}
+nav > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+nav > a, nav > a:visited {
+	text-decoration: none;
+	display: inline-block;
+	padding: 1rem;
+	margin: 0;
+
+	color: black;
+	height: 100%;
+	padding-left: 0.3rem;
+	padding-right: 0.3rem;
+}
+nav > a:hover {
+	background-color: var(--hover-color);
+}
+
 #gif_list {
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 100%;
 }
 .gif_box {
-	max-width: 14em;
+	max-width: 15em;
 }
 .gif_box > img {
 	max-width: 100%;
 	height: auto;
+}
+.gif_box h3, .gif_box h4, .gif_box h5, p {
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+}
+.gif_rating {
+	display: inline-block;
+	margin: 0.2rem;
+	padding: 0.3rem;
+	font-size: 1.2rem;
+	background-color: #37ab35;
+	border-radius: 3px;
+}
+.gif_rating[rating="pg"] {
+	background-color: rgb(255, 255, 29);
+}
+.gif_rating[rating="pg-13"] {
+	background-color: rgb(255, 89, 89);
+}
+.gif_rating[rating="r"] {
+	background-color: red;
 }
 
 .box {
 	border-radius: 7px;
 	background-color: white;
 
-	box-shadow: 0px 0.5px 3px 2px rgb(151, 151, 151);
+	box-shadow: 0px 0.5px 4px 1px rgb(151, 151, 151);
 	padding: 7px;
 	margin: 5px;
 }
@@ -204,4 +264,3 @@ input[type="text"], input[type="password"], input[type="email"] {
 		transform: translateX(100%);
 	}
 }
-

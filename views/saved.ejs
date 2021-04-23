@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,28 @@
 
 	<title>Saved GIFs</title>
 </head>
+
 <body>
-	<div class="box"><h3>Saved GIFs</h3></div>
-	<section id="gif_list">
-	<% for(let file of files) { %>
-		<div class="box gif_box">
-			<img src="<%= file %>" />
+	<%- include("nav.ejs") %>
+	<main>
+		<div class="box">
+			<h3>Saved GIFs</h3>
 		</div>
-	<% } %>
-	</section>
+		<section id="gif_list">
+			<% for(let file of files) { %>
+				<div class="box gif_box">
+					<img src="<%= file.path %>" />
+					<h4>
+						<%= file.data.title %>
+					</h4>
+					<p>By <strong>@<%= file.data.author %></strong></p>
+					<h3 class="gif_rating" rating='<%= file.data.rating %>'>
+						<%= file.data.rating %>
+					</h3>
+				</div>
+				<% } %>
+		</section>
+	</main>
 </body>
+
 </html>

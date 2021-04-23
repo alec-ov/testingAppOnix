@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,40 @@
 
 	<title>Search GIFs</title>
 </head>
+
 <body>
-	<form id="search_form" action="/gif" method="GET">
-		<input type="text" class="text_input" name="q" value="<%= query %>">
-		<input class="btn" type="submit">
-	</form>
-	<form id="search_form" class="box" action="/save" method="GET">
-		<input class="btn" type="submit" value="Save top 10 to file"/>
-		<input type="text" class="text_input" name="q" value="<%= query %>" readonly >
-	</form>
-	<section id="gif_list">
-	<% for(let gif of gifs) { %>
-		<div class="box gif_box">
-			<img src="<%= gif.images.original.url %>" />
-			<h5>@<%= gif.username %> via GIPHY</h5><h3><%= gif.rating %></h3>
-		</div>
-	<% } %>
-	</section>
+	<%- include("nav.ejs") %>
+		<main>
+			<section class="box">
+				<form id="search_form" action="/gif" method="GET">
+					<input type="text" class="text_input" name="q" value="<%= query %>">
+					<input class="btn" type="submit">
+				</form>
+				<% if (query) { %>
+					<form id="search_form" action="/save" method="GET">
+						<input class="btn" type="submit" value="Save top 10 to file" />
+						<input type="text" class="text_input" name="q" value="<%= query %>" readonly
+							style="display: none;">
+					</form>
+				<% } %>
+			</section>
+			<% if (query) { %>
+			<section id="gif_list">
+				<% for(let gif of gifs) { %>
+					<div class="box gif_box">
+						<img src="<%= gif.images.original.url %>" />
+						<h4>
+							<%= gif.title %>
+						</h4>
+						<p>By <strong>@<%= gif.username %></strong></p>
+						<h3 class="gif_rating" rating='<%= gif.rating %>'>
+							<%= gif.rating %>
+						</h3>
+					</div>
+					<% } %>
+			</section>
+			<% } %>
+		</main>
 </body>
+
 </html>

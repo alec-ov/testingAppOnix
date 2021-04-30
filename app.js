@@ -10,8 +10,8 @@ app.use(express.static('public')); // styles
 app.use(express.static('saved')); // saved gifs
 
 /**
- * Generates a middleware function that catches any exeptions and passes them to express(next()) to be handled
- * @param {Function} hanler an "unsafe" async middleware request handler
+ * Generates a middleware function that catches any exceptions and passes them to express(next()) to be handled
+ * @param {Function} handler async middleware function that doesn't catch exceptions
  * @returns request handler that automaticly passes errors to next()
  */
 function catcher(handler) {
@@ -41,7 +41,7 @@ app.get('/gif', catcher(
 	})
 );
 
-/** Saves 10 gifs to "saved" folder and redirects to list of saved gifs */
+/** Doenloads 10 gifs to "saved" folder and when finished redirects to list of saved gifs */
 app.get('/save', catcher(
 	async (req, res, next) => {
 		if (req.query.q) {
@@ -64,8 +64,8 @@ app.get('/saved', catcher(
 
 app.get('*', (req, res) => {
 	res.status(404);
-	res.send("not found");
+	res.render('nav')
 })
 
-app.listen(80);
+app.listen(80); // standart http port
 console.log("listening on port 80.");

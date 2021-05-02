@@ -10,7 +10,7 @@ app.use(express.static('public')); // styles
 app.use(express.static('saved')); // saved gifs
 
 /**
- * Generates a middleware function that catches any exceptions and passes them to express(next()) to be handled
+ * Generates a middleware function that catches any exceptions and passes them to express (next()) to be handled
  * @param {Function} handler async middleware function that doesn't catch exceptions
  * @returns request handler that automaticly passes errors to next()
  */
@@ -41,7 +41,7 @@ app.get('/gif', catcher(
 	})
 );
 
-/** Doenloads 10 gifs to "saved" folder and when finished redirects to list of saved gifs */
+/** Downloads 10 gifs to "saved" folder and when finished redirects to "/saved" */
 app.get('/save', catcher(
 	async (req, res, next) => {
 		if (req.query.q) {

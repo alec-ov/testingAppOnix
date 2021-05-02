@@ -49,9 +49,9 @@ async function getGIFs(query = "cat") {
 
 /**
  * Downloads a file from a url
- * @param {string} url url of rhe filr to be downloaded
+ * @param {string} url url of the file to be downloaded
  * @param {string} name name of the file
- * @returns {Promise<undefined>} that resolves wnen finished
+ * @returns {Promise<undefined>} resolves wnen finished
  */
 function download(url, name) {
 	const file = fs.createWriteStream("saved/" + name);
@@ -67,7 +67,7 @@ function download(url, name) {
 
 /** UNUSED
  * Adds text to left top corner of the image.
- * !!! Jimp library currentry cannot encode GIFs thus this function cannot be used. Works properly with .png
+ * !!! Jimp library currentry cannot encode GIFs thus this function cannot be used. Works properly with .png and other formats
  * @param {string} filename path to the image file
  */
 async function watermark(filename) {

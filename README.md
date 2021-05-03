@@ -15,3 +15,5 @@ Small test project.
 - __[ejs](https://github.com/mde/ejs)__
 - ~~__[Jimp](https://github.com/oliver-moran/jimp#readme)__ for image editing~~ (does not support gifs "currently")
 - [GIPHY search API](https://developers.giphy.com/docs/api/endpoint/#search) (API key should be in environment variable "GIPHY_API")
+#### Note
+folder "saved" not included to repository due to copyright on gifs
